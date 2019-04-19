@@ -3,13 +3,13 @@ phases:
   pre_build:
     commands:
       - echo Restore started on `date`
-      - dotnet restore CodeDeployDemo/CodeDeployDemo.csproj
+      - dotnet restore ./CodeDeployDemo.csproj
   build:
     commands:
       - echo Build started on `date`
-      - dotnet publish -c release -o ./build_output CodeDeployDemo/CodeDeployDemo.csproj
+      - dotnet publish -c release -o ./build_output ./CodeDeployDemo.csproj
 artifacts:
   files:
-    - CodeDeployDemo/build_output/**/*
+    - ./build_output/**/*
     - scripts/**/*
     - appspec.yml
